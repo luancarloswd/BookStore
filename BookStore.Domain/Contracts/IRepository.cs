@@ -12,6 +12,6 @@ namespace BookStore.Domain.Contracts
         T Get(int id);
         void Create(T entity);
         void Update(T entity);
-        void Delete(T entity);
+        void Delete(int id);
     }
 }
