@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.ModelConfiguration;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.ModelConfiguration;
 using BookStore.Domain;
 
 namespace BookStore.Data.Mappings
@@ -9,13 +10,14 @@ namespace BookStore.Data.Mappings
         {
             ToTable("Book");
 
-            HasKey(x => x.Id);
-            Property(x => x.Title)
+            Property(x => x.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+           Property(x => x.Title)
                 .HasMaxLength(225)
                 .IsRequired();
 
             Property(x => x.Price)
-                .HasColumnType("Money")
                 .IsRequired();
 
             Property(x => x.ReleaseDate)

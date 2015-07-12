@@ -11,6 +11,10 @@ namespace BookStore.Api
         {
             // Web API configuration and services
 
+            //Remove XML Formatter
+            var formatters = GlobalConfiguration.Configuration.Formatters;
+            formatters.Remove(formatters.XmlFormatter);
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 
